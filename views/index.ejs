@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+    	<meta charset="UTF-8" />
+		<title><%= currency %>.Coinmonitor.de</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-50358284-1', 'coinmonitor.de');
+  ga('send', 'pageview');
+
+</script>
+
+		<script>
+			var currency = "<%= currency %>";
+		</script>
+		
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+		<link href="cs/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+		<script src="cs/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="highstock/highstock.js"></script>
+		<!--<script src="highstock/modules/exporting.js"></script>-->
+
+		<script type="text/javascript" src="javascripts/client.js"></script>
+		<script type="text/javascript" src="http://85.114.132.118:3000/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<div id="nav">
+			<ul class="nav">
+				<li class="logo"><a href="/"><%= currency %>.CoinMonitor.de</a></li>
+			</ul>
+
+			<ul class="currency_selector">
+				<li class="currency_selector">
+					<span class="currency_selected">Other cryptocoins</span> <span class="carret"></span>
+					<ul>
+						<!--<li class="currency"><a href="bc.CoinMonitor.de">BC.CoinMonitor.de</a></li>
+						<li class="currency"><a href="doge.CoinMonitor.de">DOGE.CoinMonitor.de</a></li>
+						<li class="currency"><a href="meow.CoinMonitor.de">MEOW.CoinMonitor.de</a></li>-->
+					</ul>
+				</li>
+			</ul>
+
+		</div>
+		<div id="settings">
+			<ul class="settings">
+				<li>Interval:</li>
+				<li class="period"><a href="#" interval="1440">1d</a></li>
+				<li class="period"><a href="#" interval="720">12h</a></li>
+				<li class="period"><a href="#" interval="180">3h</a></li>
+				<li class="period"><a href="#" interval="60">1h</a></li>
+				<li class="period"><a href="#" interval="30">30m</a></li>
+				<li class="period current"><a href="#" interval="15">15m</a></li>
+				<li class="period"><a href="#" interval="5">5m</a></li>
+				<li class="period"><a href="#" interval="1">1m</a></li>
+
+				<li class="select">
+					<ul>
+						<li class="chart_type current"><a href="#" type="candlestick">Candlestick</a></li>
+						<li class="chart_type"><a href="#" type="ohlc">OHLC</a></li>
+						<li class="chart_type"><a href="#" type="spline">Line</a></li>
+					</ul>
+				</li>
+
+				<li class="indicator_ma">
+					MA
+					<ul class="first">
+						<li class="indicator_interval_first" bars="0">None</li>
+						<li class="indicator_interval_first" bars="5">5 bars</li>
+						<li class="indicator_interval_first" bars="10">10 bars</li>
+						<li class="indicator_interval_first" bars="15">15 bars</li>
+						<li class="indicator_interval_first" bars="20">20 bars</li>
+						<li class="indicator_interval_first" bars="30">30 bars</li>
+					</ul>
+					<ul class="second">
+						<li class="indicator_interval_second" bars="0">None</li>
+						<li class="indicator_interval_second" bars="10">10 bars</li>
+						<li class="indicator_interval_second" bars="20">20 bars</li>
+						<li class="indicator_interval_second" bars="30">30 bars</li>
+						<li class="indicator_interval_second" bars="40">40 bars</li>
+						<li class="indicator_interval_second" bars="50">50 bars</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="main">
+			<div id="charts">
+				<div id="candle_chart"></div>
+			</div>
+			
+			<div id="right_box">
+				<div id="orderbook">
+					<div id="orders_bid">
+						<div class="wrapper"></div>
+					</div>
+					<div id="orders_ask">
+						<div class="wrapper"></div>
+					</div>
+				</div>
+
+				<div id="history_outer">
+					<div id="history">
+					</div>
+				</div>
+			</div>
+
+			<div id="advertisment" style="padding: 5px;">
+ <script type="text/javascript">
+   var sppc_site      = '20';
+   var sppc_channel   = '56';
+   var sppc_dimension = '5';
+   var sppc_width     = '160';
+   var sppc_height    = '600';
+   var sppc_palette   = '1';
+   var sppc_user      = '1';
+</script>
+<script type="text/javascript" src="http://coinmonitor.orbitopenadserver.com/show.js"></script></div>
+		</div>
+		<div id="footer">
+			<div class="left">
+			 Contact: info@coinmonitor.de
+				|
+				Please donate: <strong>BTC: 1BDCCswEBmuPasE5cfexU5i1fskjZst75m WC: WgQYugU6oPfXwKFbHTiHykVjMX88eLw5EF</strong>
+			</div>
+			<div class="right">
+				<span id="info" style="color: #666;"></span>
+				<span id="current_time"></span>
+			</div>
+		</div>
+	</body>
+</html>
